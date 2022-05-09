@@ -4,9 +4,11 @@ import java.time.LocalDateTime;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.DateTimeFormat.ISO;
 
+@Document(collection = "employee")
 public class Employee {
 
     @Id
@@ -69,4 +71,15 @@ public class Employee {
         this.hire_date = hire_date;
     }
 
+    @Override
+    public String toString() {
+        return "Employee {" +
+                "id=" + id +
+                ", first_name='" + first_name +
+                ", last_name='" + last_name +
+                ", email='" + email +
+                ", gender=" + gender +
+                ", hire_date='" + hire_date +
+                '}';
+    }
 }
